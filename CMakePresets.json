@@ -1,0 +1,70 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "arm-m33-release",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/arm-m33/release",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "arm-m33-debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/arm-m33/debug",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_VERBOSE_MAKEFILE": "ON"
+            }
+        },
+        {
+            "name": "x86_64-release",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/x86_64/release",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "x86_64-debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/x86_64/debug",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_VERBOSE_MAKEFILE": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "arm-m33-release-build",
+            "configurePreset": "arm-m33-release",
+            "description": "Build ARM M33 Release firmware",
+            "jobs": 4
+        },
+        {
+            "name": "arm-m33-debug-build",
+            "configurePreset": "arm-m33-debug",
+            "description": "Build ARM M33 Debug firmware",
+            "jobs": 4
+        },
+        {
+            "name": "x86_64-release-build",
+            "configurePreset": "x86_64-release",
+            "description": "Build native x86_64 Release",
+            "jobs": 4
+        },
+        {
+            "name": "x86_64-debug-build",
+            "configurePreset": "x86_64-debug",
+            "description": "Build native x86_64 Debug",
+            "jobs": 4
+        }
+    ]
+}
+
