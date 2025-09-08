@@ -1,6 +1,10 @@
 Bare Metal Programming with CMake
 
-This project shows how to organize a bare metal microcontroller firmware project using CMake.
+Overview:
+This project demonstrates how to organize a bare metal microcontroller firmware project using CMake. 
+It is *not* intended for building complex firmware with many dependencies, but rather to show how
+to structure a CMake-based firmware development environment that can be extended to support
+multiple target platforms in the future.
 
 Directory Structure:
 - cmake/             CMake helper scripts and toolchains
