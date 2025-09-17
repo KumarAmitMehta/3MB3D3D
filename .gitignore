@@ -1,7 +1,9 @@
 # Ignore build artifacts
 build/
+.cache/
 
 # Ignore other build outputs
 *.o
 *.exe
 *.log
+
