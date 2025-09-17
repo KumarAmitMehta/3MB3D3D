@@ -1,7 +1,8 @@
-// Copyright (c) 2022 Cesanta Software Limited
-// All rights reserved
-
-int main(void) {
-  return 0;
+int main(void) 
+{
+    while (1) {}
+  
+    // should never reach here
+    return 0;
 }
 
