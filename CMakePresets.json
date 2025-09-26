@@ -7,7 +7,8 @@
             "binaryDir": "${sourceDir}/build/arm-m33/release",
             "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "TARGET_CPU": "arm-m33"
             }
         },
         {
@@ -17,7 +18,18 @@
             "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
+                "TARGET_CPU": "arm-m33",
                 "CMAKE_VERBOSE_MAKEFILE": "ON"
+            }
+        },
+        {
+            "name": "arm-m3-simulation",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/arm-m3/simulation",
+            "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "TARGET_CPU": "arm-m3-simulation"
             }
         },
         {
@@ -51,6 +63,12 @@
             "name": "arm-m33-debug-build",
             "configurePreset": "arm-m33-debug",
             "description": "Build ARM M33 Debug firmware",
+            "jobs": 4
+        },
+        {
+            "name": "arm-m3-simulation-build",
+            "configurePreset": "arm-m3-simulation",
+            "description": "Build ARM M3 firmware for qemu",
             "jobs": 4
         },
         {

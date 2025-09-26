@@ -9,7 +9,11 @@ set_target_properties(${FIRMWARE_NAME} PROPERTIES
     SUFFIX ".elf" 
 )
 
-if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm")
-    include(cmake/options/arm-m33-options.cmake)
+if(DEFINED TARGET_CPU)
+    if(TARGET_CPU STREQUAL "arm-m33")
+        include(cmake/options/arm-m33-options.cmake)
+    elseif(TARGET_CPU STREQUAL "arm-m3-simulation")
+        include(cmake/options/arm-m3-simulation-options.cmake)
+    endif()
 endif()
 
