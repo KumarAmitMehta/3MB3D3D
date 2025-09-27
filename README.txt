@@ -13,7 +13,8 @@ Directory Structure:
 - tests/             Hosted environment for unit tests. 
 - CMakeLists.txt     Main CMake configuration.
 - CMakePresets.json  CMake presets for targets and build types.
-- mk.sh              Bash Script wrapper for cmake preset commands.
+- mk.sh              Bash script wrapper for cmake preset commands.
+- install_deps.sh    Bash script for installing dependencies for baremetal f/w development.
 - LICENSE            lincense from the original bare metal guide.
 - README.txt         This file.
 
@@ -52,5 +53,5 @@ Examples:
   ./mk.sh build arm-m33-release-build
 
 TODO:
-- Add support for zephyr
-- Add google unittests for x86_64 target
+- Add support for zephyr environment setup.
+- Add google unittests for x86_64 target.
