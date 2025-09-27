@@ -1,7 +1,5 @@
-target_sources(${FIRMWARE_NAME} PRIVATE src/arm_startup.c)
-
 target_link_options(${FIRMWARE_NAME} PRIVATE
-    -T${CMAKE_SOURCE_DIR}/src/link.ld
+    -T${CMAKE_SOURCE_DIR}/baremetal/arm-m33/src/link.ld
     -nostartfiles -nostdlib
     --specs=nano.specs
     -lc -lgcc
@@ -14,8 +12,10 @@ target_link_options(${FIRMWARE_NAME} PRIVATE
 target_compile_options(${FIRMWARE_NAME} PRIVATE
     -W -Wall -Wextra -Werror -Wundef -Wshadow -Wdouble-promotion
     -Wformat-truncation -fno-common -Wconversion
-    -g3 -O0 -ffunction-sections -fdata-sections -I.
-    -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
+    -O0 -ffunction-sections -fdata-sections -I.
+    -mcpu=cortex-m33 
+    -mthumb
+    -mfloat-abi=hard
 )
 
 add_custom_command(TARGET ${FIRMWARE_NAME}

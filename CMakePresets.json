@@ -23,13 +23,13 @@
             }
         },
         {
-            "name": "arm-m3-simulation",
+            "name": "arm-m3-qemu",
             "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/build/arm-m3/simulation",
+            "binaryDir": "${sourceDir}/build/arm-m3/qemu",
             "toolchainFile": "${sourceDir}/cmake/toolchains/arm-none-eabi-gcc-toolchain.cmake",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "TARGET_CPU": "arm-m3-simulation"
+                "TARGET_CPU": "arm-m3-qemu"
             }
         },
         {
@@ -38,7 +38,8 @@
             "binaryDir": "${sourceDir}/build/x86_64/release",
             "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-toolchain.cmake",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "TARGET_CPU": "x86"
             }
         },
         {
@@ -48,6 +49,7 @@
             "toolchainFile": "${sourceDir}/cmake/toolchains/x86_64-toolchain.cmake",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
+                "TARGET_CPU": "x86",
                 "CMAKE_VERBOSE_MAKEFILE": "ON"
             }
         }
@@ -66,8 +68,8 @@
             "jobs": 4
         },
         {
-            "name": "arm-m3-simulation-build",
-            "configurePreset": "arm-m3-simulation",
+            "name": "arm-m3-qemu-build",
+            "configurePreset": "arm-m3-qemu",
             "description": "Build ARM M3 firmware for qemu",
             "jobs": 4
         },

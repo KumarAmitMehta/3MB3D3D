@@ -1,19 +1,19 @@
 cmake_minimum_required(VERSION 3.28.3)
-project(pqshield)
+project(FlexiFirm)
 set(FIRMWARE_NAME firmware)
 
-add_executable(${FIRMWARE_NAME} src/main.c)
+if (NOT DEFINED TARGET_CPU)
+    message(FATAL_ERROR "TARGET_CPU not defined!")
+endif()
 
-set_target_properties(${FIRMWARE_NAME} PROPERTIES 
-    OUTPUT_NAME "firmware"
-    SUFFIX ".elf" 
-)
 
-if(DEFINED TARGET_CPU)
-    if(TARGET_CPU STREQUAL "arm-m33")
-        include(cmake/options/arm-m33-options.cmake)
-    elseif(TARGET_CPU STREQUAL "arm-m3-simulation")
-        include(cmake/options/arm-m3-simulation-options.cmake)
-    endif()
+if(TARGET_CPU STREQUAL "arm-m33")
+    add_subdirectory(baremetal/arm-m33)
+elseif(TARGET_CPU STREQUAL "arm-m3-qemu")
+    add_subdirectory(baremetal/arm-m3)
+elseif(TARGET_CPU STREQUAL "x86")
+    add_subdirectory(tests)
+else()
+    message(FATAL_ERROR "Unsupported TARGET_CPU: ${TARGET_CPU}")
 endif()
 
