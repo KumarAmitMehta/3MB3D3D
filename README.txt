@@ -7,31 +7,34 @@ to structure a CMake-based firmware development environment that can be extended
 multiple target platforms in the future.
 
 Directory Structure:
-- cmake/             CMake helper scripts and toolchains
-- build/             Build output directory
-- src/               Firmware source code
-- CMakeLists.txt     Main CMake configuration
-- CMakePresets.json  CMake presets for targets and build types
-- mk.sh              Bash Script wrapper for cmake preset commands
-- LICENSE            lincense from the original bare metal guide
-- README.txt         This file
+- cmake/             CMake helper scripts and toolchains.
+- build/             Build output directory.
+- baremetal/         Baremetal Firmware source code(s).
+- tests/             Hosted environment for unit tests. 
+- CMakeLists.txt     Main CMake configuration.
+- CMakePresets.json  CMake presets for targets and build types.
+- mk.sh              Bash Script wrapper for cmake preset commands.
+- LICENSE            lincense from the original bare metal guide.
+- README.txt         This file.
 
 Features:
-- Supports multiple targets with CMake presets (e.g., ARM Cortex-M33, x86_64)
-- Separate configure and build steps with presets
+- Supports following target platforms:
+    a) ARM Cortex-M33: Targeting actual STM32 based development board.
+    b) ARM Cortex-M3: Qemu emulated target.
+    c) x86_64: Hosted environment for code coverage and unit tests.
+- Separate configure and build steps with presets.
+- Multiple branches:
+    a) baremetal: No operating system abstraction.
+    b) zephyr: zephyr operating system abstraction.
 
 Requirements:
 - CMake 3.19+
 - GNU Arm Embedded Toolchain (arm-none-eabi-gcc)
 - Make build tool
 
-Firmware Development:
-- Source code in src/
-
 Customization:
 - Add toolchains in cmake/toolchains/
 - Extend CMakePresets.json for targets/configs
-- Add firmware modules in src/
 
 mk.sh Usage:
 Usage: ./mk.sh [command] [preset]
