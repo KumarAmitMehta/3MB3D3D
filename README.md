@@ -29,7 +29,7 @@ multiple target platforms in the future.
   c) x86_64: Hosted environment for code coverage and unit tests.  
 - Separate configure and build steps with presets.  
 - Multiple branches:  
-  a) `baremetal`: No operating system abstraction.  
+  a) `master`: No operating system abstraction.  
   b) `zephyr`: zephyr operating system abstraction.  
 
 ---
@@ -53,7 +53,6 @@ Usage: ./mk.sh [command] [preset]
 
 Commands:
 list-configure         List configure presets
-
 ```
 configure <preset>     Run 'cmake --preset <preset>'
 ```
@@ -62,7 +61,6 @@ list-build             List build presets
 
 build <preset>         Run 'cmake --build --preset <preset>'
 ```
-
 Examples:
 ./mk.sh list-configure
 ./mk.sh configure arm-m33-release
