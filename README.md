@@ -49,7 +49,6 @@ multiple target platforms in the future.
 
 ## mk.sh Usage
 ```
-
 Usage: ./mk.sh [command] [preset]
 
 Commands:
@@ -58,10 +57,9 @@ list-configure         List configure presets
 ```
 configure <preset>     Run 'cmake --preset <preset>'
 ```
-
 list-build             List build presets
-
 ```
+
 build <preset>         Run 'cmake --build --preset <preset>'
 ```
 
@@ -70,14 +68,9 @@ Examples:
 ./mk.sh configure arm-m33-release
 ./mk.sh list-build
 ./mk.sh build arm-m33-release-build
-
 ```
 
 ---
 
 ## TODO 
 - Refer issues page.
-```
-
-
-
